@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-import { FullDetails } from "../components"
+import { FullDetails, PreviewNextPoke } from "../components"
 import { getPokemonData} from "../api"
 import {Loading} from "../components/loading";
 import {noPreviewPokemon, noNextPokemon} from "../utils/noPokemon"
 
 export const Details = () =>{
 
-    const {id}= useParams();
+    let {id}= useParams();
+    let setID = parseInt(id);
+    const navigate = useNavigate();
     const [previewPokemon, setPreviewPokemon] = useState(noPreviewPokemon);
     const [currentPokemon, setCurrentPokemon] = useState(null);
     const [nextPokemon, setNextPokemon] = useState(noNextPokemon);
@@ -16,23 +18,33 @@ export const Details = () =>{
 
     const getCurrentPokemon = async()=>{
         try{
-            if(id > 1 ){
-                const prePokemon = await getPokemonData(id-1);
+            if(setID > 1 ){
+                const prePokemon = await getPokemonData(setID-1);
                 setPreviewPokemon(prePokemon);
             }
             if(id < 906){
-                const nextPoke = await getPokemonData(parseInt(id)+1);
+                const nextPoke = await getPokemonData(setID+1);
                 setNextPokemon(nextPoke);
-                console.log(nextPoke);
             }
-            const details = await getPokemonData(id);
+            const details = await getPokemonData(setID);
             setCurrentPokemon(details);
             setLoading(false);
         } catch(err){
             console.log(err);
         }
     }
-
+    const handlePreview = () =>{
+        if(setID > 1 ){
+            navigate(`/pokemon/${setID -= 1}`)
+            getCurrentPokemon();
+        }
+    }
+    const handleNext = () =>{
+        if(setID < 906){
+            navigate(`/pokemon/${setID += 1}`)
+        getCurrentPokemon();
+    }
+}
     
     useEffect(()=>{
         getCurrentPokemon();
@@ -41,7 +53,8 @@ export const Details = () =>{
             <>
             {loading ? 
                 <Loading/> :
-                <FullDetails pokemon={currentPokemon} prePoke={previewPokemon} nextPoke={nextPokemon} />}
+                <FullDetails pokemon={currentPokemon}/>}
+                <PreviewNextPoke prePoke={previewPokemon} nextPoke={nextPokemon} handlePreview={handlePreview} handleNext={handleNext} />
             </>
                             
     )

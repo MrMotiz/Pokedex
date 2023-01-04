@@ -1,4 +1,4 @@
-import { Button } from "./styles";
+import { Button, BackButton } from "./styles";
 import { useState, useEffect } from "react";
 
 
@@ -25,11 +25,15 @@ export const FilterButton = ({name, handleSearch})=>{
 
   
     
-return <Button onClick={handleSearch} style={{backgroundColor:typeColor, border:`1px solid ${borderColor}`}}>{name.charAt(0).toUpperCase() + name.slice(1)}</Button>
-    
+        return <Button onClick={handleSearch} style={{backgroundColor:typeColor, border:`1px solid ${borderColor}`}}>
+            {name.charAt(0).toUpperCase() + name.slice(1)}
+            </Button>
+
+}
 
 
-    
+export const ReturnButton = ({handleClick}) =>{
+    return <BackButton onClick={handleClick}/>
 }
 
 const typeColors = {

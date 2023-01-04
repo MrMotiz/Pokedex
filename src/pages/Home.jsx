@@ -8,14 +8,14 @@ import {Loading} from "../components/loading";
 
 export const Home = () =>{
 
-    const pokeGens = [152, 252, 387, 494, 650, 810];
+    // const pokeGens = [152, 252, 387, 494, 650, 810];
     const [pokemons, setPokemons] = useState([])
     const [types, setTypes] = useState([])
     const [loading, setLoading] = useState(true);
     
-    const getPokemons = async(pokeGens)=>{
+    const getPokemons = async()=>{
         const pokes = [];
-        for(let i =1; i < pokeGens[0]; i++){
+        for(let i =1; i < 152; i++){
             pokes.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
         }
         const response = await axios.all(pokes.map((item)=>
@@ -48,8 +48,7 @@ export const Home = () =>{
     }
     useEffect(()=>{
         getTypes();
-        getPokemons(pokeGens);
-        console.log(pokemons)
+        getPokemons();
     }, [])
     return (
         <>

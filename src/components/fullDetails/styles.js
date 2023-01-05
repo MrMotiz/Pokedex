@@ -41,6 +41,7 @@ export const PokemonStageInfo = styled.div`
     display: flex;
     justify-content: space-evenly;
     width: 50%;
+    
     h1{
         color: black;
         font-size: 30px;

@@ -11,10 +11,11 @@ export const CardContainer = styled.div`
     margin: 10px auto;
     transition:transform 0.25s ease;
     box-shadow: 7.5px 5px 5px rgba(0, 0, 0, 0.25);
+    border: 1px solid white;
     cursor: pointer;
     :hover {
-    -webkit-transform:scale(1.25);
-    transform:scale(1.25);
+    -webkit-transform:scale(1.1);
+    transform:scale(1.1);
     }
 `;
 
@@ -32,7 +33,7 @@ export const CardInfo = styled.div`
     height: 30%;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-
+    border-top: 1px solid white;
 `;
 
 export const CardDetailsInfo = styled.div`

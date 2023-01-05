@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { FullDetails, PreviewNextPoke } from "../components"
-import { getPokemonData} from "../api"
+import { getPokemons} from "../api"
 import {Loading} from "../components/loading";
 import {noPreviewPokemon, noNextPokemon} from "../utils/noPokemon"
 
@@ -20,14 +20,14 @@ export const Details = () =>{
     const getCurrentPokemon = async()=>{
         try{
             if(setID > 1 ){
-                const prePokemon = await getPokemonData(setID-1);
+                const prePokemon = await getPokemons(setID-1);
                 setPreviewPokemon(prePokemon);
             }
             if(id < 906){
-                const nextPoke = await getPokemonData(setID+1);
+                const nextPoke = await getPokemons(setID+1);
                 setNextPokemon(nextPoke);
             }
-            const details = await getPokemonData(setID);
+            const details = await getPokemons(setID);
             setCurrentPokemon(details);
             setLoading(false);
         } catch(err){

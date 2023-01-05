@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 
 import {typeColors,typeColorsBorders } from "../../utils/noPokemon"
 
-export const FilterButton = ({name, handleSearch})=>{
+export const FilterButton = ({name, handleClick})=>{
 
     const types = Object.keys(typeColors);
     const colors = Object.values(typeColors);
@@ -12,7 +12,7 @@ export const FilterButton = ({name, handleSearch})=>{
     const [borderColor, setBorderColor] = useState("");
     const tempColors = useRef();
 
-    const setColors = () =>{
+    const organizeColors = () =>{
 
         for (let i = 0; i < types.length; i++) {
             if(name.toLowerCase() === types[i]){
@@ -21,13 +21,13 @@ export const FilterButton = ({name, handleSearch})=>{
             }
         }
     }
-    tempColors.current = setColors
+    tempColors.current = organizeColors
 
     useEffect(() => {
         tempColors.current();
     }, []);
 
-        return <Button onClick={handleSearch} style={{backgroundColor:typeColor, border:`1px solid ${borderColor}`}}>
+        return <Button onClick={handleClick} style={{backgroundColor:typeColor, border:`1px solid ${borderColor}`}}>
             {name.charAt(0).toUpperCase() + name.slice(1)}
             </Button>
 

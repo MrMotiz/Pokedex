@@ -1,7 +1,11 @@
 import axios from "axios";
 
-export const getPokemonData = async (id) => {
-    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    const data = response.data;
-    return data;
-}
+export const getPokemons = async()=>{
+    const pokes = [];
+    for(let i =1; i < 152; i++){
+        pokes.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+    }
+    const response = await axios.all(pokes.map((item)=>
+    axios.get(item)));
+    return response;
+  }

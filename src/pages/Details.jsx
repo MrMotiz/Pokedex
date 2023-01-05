@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { FullDetails, PreviewNextPoke } from "../components"
@@ -15,6 +15,7 @@ export const Details = () =>{
     const [currentPokemon, setCurrentPokemon] = useState(null);
     const [nextPokemon, setNextPokemon] = useState(noNextPokemon);
     const [loading, setLoading] = useState(true);
+    const tempCurrentPokemon = useRef();
 
     const getCurrentPokemon = async()=>{
         try{
@@ -45,9 +46,9 @@ export const Details = () =>{
         getCurrentPokemon();
     }
 }
-    
+    tempCurrentPokemon.current = getCurrentPokemon();
     useEffect(()=>{
-        getCurrentPokemon();
+        tempCurrentPokemon.current()
     }, [])
         return ( 
             <>

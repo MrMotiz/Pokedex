@@ -7,7 +7,7 @@ export const FullDetailsContainer = styled.div`
     justify-content: center;
     gap: 5%;
     margin: 10px;
-    width: 90%;
+    width: 80%;
     margin: 10px auto;
     padding: 10px;
     border-radius: 20px;
@@ -24,7 +24,7 @@ export const PokemonStage = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 60%;
     height: 100%;
     background: lightblue;
     margin: 10px;
@@ -51,7 +51,7 @@ export const PokemonStageInfo = styled.div`
 export const PokemonInfoDetails = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 75%;
+    width: 70%;
     margin: 0 auto;
     h1{
         font-size: 25px;
@@ -66,7 +66,7 @@ export const PokemonInfoDetails = styled.div`
 `;
 
 export const StatsContainer = styled.div`
-    width: 40%;
+    width: 35%;
     background-color: aliceblue;
     box-shadow: 5px 3px 3px rgba(0, 0, 0, 0.20);
     border-radius: 20px;
@@ -77,9 +77,10 @@ export const StatsContainer = styled.div`
 export const TypesContainer = styled.div`
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 `;
 export const ShinyContainer = styled.div`
-    width: 35%;
+    width: 30%;
     height: 30%;
     background-color: aliceblue;
     box-shadow: 5px 3px 3px rgba(0, 0, 0, 0.20);

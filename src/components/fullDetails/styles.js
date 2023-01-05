@@ -26,7 +26,7 @@ export const PokemonStage = styled.div`
     align-items: center;
     width: 70%;
     height: 100%;
-    background-color: aliceblue;
+    background: lightblue;
     margin: 10px;
     padding: 10px;
     border-radius: 20px;
@@ -55,10 +55,10 @@ export const PokemonInfoDetails = styled.div`
     margin: 0 auto;
     h1{
         font-size: 25px;
-        border: 1px solid black;
+        border: 1px solid white;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
-        background: gray;
+        background: lightseagreen;
         color: aliceblue;
         padding: 10px;
     

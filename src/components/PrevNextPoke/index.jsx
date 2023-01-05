@@ -3,6 +3,7 @@ import {BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill} from "react-icons
 
 
 export const PreviewNextPoke = ({prePoke, nextPoke, handlePreview, handleNext}) =>{
+    
     return (
         <PokePreNextContainer>
                 <PokeInfoContainer onClick={handlePreview}>

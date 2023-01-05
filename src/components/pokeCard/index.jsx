@@ -7,7 +7,6 @@ export const PokeCard = ({data}) =>{
 
     const navigate = useNavigate();
 
-
     return (
         <CardContainer onClick={()=> navigate(`/pokemon/${data.id}`) }> 
             <CardImage src={data.sprites.front_default} alt={data.name} />
@@ -15,7 +14,6 @@ export const PokeCard = ({data}) =>{
                 <CardDetailsInfo>
                     <CardText>#{data.id}</CardText>
                     <TypeContainer>
-
                 {data.types.map((item)=>
                     <FilterButton name={item.type.name.charAt(0).toUpperCase() + item.type.name.slice(1)}/> 
                     )}

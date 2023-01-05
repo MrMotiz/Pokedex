@@ -27,8 +27,6 @@ export const FilterButton = ({name, handleSearch})=>{
         tempColors.current();
     }, []);
 
-  
-    
         return <Button onClick={handleSearch} style={{backgroundColor:typeColor, border:`1px solid ${borderColor}`}}>
             {name.charAt(0).toUpperCase() + name.slice(1)}
             </Button>

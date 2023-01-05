@@ -3,7 +3,6 @@ import {NavigationBar, Logo, SearchBar, TypesContainer} from "./styles";
 
 export const Header = ({handleSearch, children}) => {
 
-
   return (
     <NavigationBar>
         <Logo src={PokemonLogo} alt="PokemonLogo" />

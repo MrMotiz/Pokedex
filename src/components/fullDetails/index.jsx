@@ -37,7 +37,6 @@ export const FullDetails = ({pokemon}) =>{
             </ShinyContainer>
             </PokemonInfoDetails>
         </FullDetailsContainer>
-
                     </>
         )
 }

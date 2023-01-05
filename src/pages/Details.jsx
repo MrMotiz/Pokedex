@@ -46,9 +46,9 @@ export const Details = () =>{
         getCurrentPokemon();
     }
 }
-    tempCurrentPokemon.current = getCurrentPokemon();
+    tempCurrentPokemon.current = getCurrentPokemon;
     useEffect(()=>{
-        tempCurrentPokemon.current()
+        tempCurrentPokemon.current();
     }, [])
         return ( 
             <>

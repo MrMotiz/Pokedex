@@ -11,17 +11,19 @@ export const AppContext = createContext([]);
 function App() {
 
   const [pokeList, setPokeList] = useState([]);
-
+  const [unchangePokeList, setUnunchangePokeList] = useState([]);
+  
   const getPokemonsData = async()=>{
-    setPokeList(await getPokemons());
+    const PokePromise = await getPokemons();
+    setPokeList(PokePromise);
+    setUnunchangePokeList(PokePromise);
   }
   useEffect(()=>{
     getPokemonsData();
-
   },[])
 
   return (
-    <AppContext.Provider value={{pokeList, setPokeList}}>
+    <AppContext.Provider value={{pokeList, setPokeList, unchangePokeList}}>
     <BrowserRouter>
       <Pages/>
     </BrowserRouter>

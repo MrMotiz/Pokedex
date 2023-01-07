@@ -6,14 +6,12 @@ import { PokeCard } from "../components/pokeCard";
 import {FilterButton} from "../components/buttons";
 import {Loading} from "../components/loading";
 import { AppContext } from "../App";
-import { getPokemons} from "../api"
 
 export const Home = () =>{
 
 
-    const {pokeList, setPokeList} = useContext(AppContext);
+    const {pokeList, setPokeList, unchangePokeList} = useContext(AppContext);
     // const pokeGens = [152, 252, 387, 494, 650, 810];
-    // const [pokemons, setPokemons] = useState(pokeList)
     const [types, setTypes] = useState([])
     const [loading, setLoading] = useState(true);
     
@@ -22,20 +20,18 @@ export const Home = () =>{
         setTypes(response.data.results);
     }
 
-    const getAllPokemons = async()=>{
-        setPokeList(await getPokemons());
-    }
-    
     const handleSearch = (value) =>{
+        setPokeList(unchangePokeList);
         const filteredPokemons = pokeList.filter((item)=>
         item.data.name.toLowerCase().includes(value.toLowerCase()));
 
-        if(!value) return getAllPokemons();
+        if(!value) return setPokeList(unchangePokeList);
 
-        setPokeList(filteredPokemons);  
+        setPokeList(filteredPokemons);
     }
     
     const handleClick = (type) =>{
+        setPokeList(unchangePokeList);
         const typesOfPokes = [];
             for (let p = 0; p < pokeList.length; p++) {
                 if(pokeList[p].data.types[0].type.name === type || 
@@ -45,10 +41,6 @@ export const Home = () =>{
                 }
             }
             setPokeList(typesOfPokes)
-            setTimeout(() => {
-                getAllPokemons();
-            }, 2000);
-       
         }
    
     useEffect(()=>{
@@ -61,7 +53,7 @@ export const Home = () =>{
     <Header handleSearch={handleSearch}>
         {types.map((item, count)=>
             <FilterButton key={count} name={item.name} handleClick={()=> handleClick(item.name)}/>
-        )}
+        )} <FilterButton name="Reset" handleClick={()=> setPokeList(unchangePokeList)}/>
 
     </Header>
     <PokeCards>

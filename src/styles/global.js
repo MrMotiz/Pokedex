@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
  }
 
  body, input, textarea, button{
-  font-family: 'Lobster', cursive;
+  font-family: 'Nunito', sans-serif;
   font-weight: 400;
   font-size: 1rem;
  }

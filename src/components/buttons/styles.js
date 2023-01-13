@@ -18,7 +18,7 @@ export const Button = styled.button`
 
 export const BackButton = styled(BsFillArrowLeftCircleFill)`
     position: fixed;
-    font-size: 30px;
+    font-size: 40px;
     margin: 10px;
     cursor: pointer;
     color: white;

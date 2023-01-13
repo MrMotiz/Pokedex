@@ -31,13 +31,11 @@ export const Home = () =>{
     }
     
     const handleClick = (type) =>{
-        setPokeList(unchangePokeList);
         const typesOfPokes = [];
             for (let p = 0; p < pokeList.length; p++) {
                 if(pokeList[p].data.types[0].type.name === type || 
                     pokeList[p].data.types[1]?.type.name === type){
-                    typesOfPokes.push(pokeList[p]); 
-                    console.log(type) 
+                    typesOfPokes.push(pokeList[p]);
                 }
             }
             setPokeList(typesOfPokes)

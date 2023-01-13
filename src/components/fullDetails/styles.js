@@ -86,8 +86,9 @@ export const ShinyContainer = styled.div`
     background-color: aliceblue;
     box-shadow: 5px 3px 3px rgba(0, 0, 0, 0.20);
     border-radius: 20px;
+    text-align: center;
         img{
-            width: 100%;
-            height: 100%;
+            width: 70%;
+            height: 70%;
         }
     `;

@@ -28,8 +28,8 @@ export const PokeInfo = styled.div`
     justify-content: center;
     align-items: center;
     img{
-        width: 100%;
-        height: 100%;
+        width: 60%;
+        height: 60%;
         margin:0px -5px;
     }
     h1{

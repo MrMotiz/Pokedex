@@ -9,7 +9,7 @@ export const PokeCard = ({data}) =>{
 
     return (
         <CardContainer onClick={()=> navigate(`/pokemon/${data.id}`) }> 
-            <CardImage src={data.sprites.front_default} alt={data.name} />
+            <CardImage src={data.sprites.other["official-artwork"].front_default} alt={data.name} />
             <CardInfo>
                 <CardDetailsInfo>
                     <CardText>#{data.id}</CardText>

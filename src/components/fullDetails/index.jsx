@@ -13,7 +13,7 @@ export const FullDetails = ({pokemon}) =>{
         <ReturnButton handleClick={()=> navigate("/")}/>
         <FullDetailsContainer>
             <PokemonStage>
-                <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+                <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
                 <PokemonStageInfo>
                     <h1>#{pokemon.id}</h1>
                     <h1>{pokemon.name.charAt(0).toUpperCase()+ pokemon.name.slice(1)}</h1>
@@ -33,7 +33,7 @@ export const FullDetails = ({pokemon}) =>{
                     </StatsContainer>
             <ShinyContainer>
                 <h1>Shiny Version:</h1>
-                    <img src={pokemon.sprites.front_shiny} alt={pokemon.name}/>
+                    <img src={pokemon.sprites.other["official-artwork"].front_shiny} alt={pokemon.name}/>
             </ShinyContainer>
             </PokemonInfoDetails>
         </FullDetailsContainer>
